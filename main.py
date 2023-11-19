@@ -8,16 +8,22 @@ screen.bgcolor("black")
 screen.title("Snake game")
 screen.tracer(0)
 
-carl = Snake()
+snake = Snake()
 
-screen.update()
-    
+screen.listen()
+
+screen.onkey(snake.up, "Up")
+screen.onkey(snake.down, "Down")
+screen.onkey(snake.left, "Left")
+screen.onkey(snake.right, "Right")
+
+
 gameIsOn = True
 
 while gameIsOn:
     screen.update()
-    time.sleep(0.1)
-    carl.moveSnake()
+    time.sleep(0.15)
+    snake.moveSnake()
     
     
 
