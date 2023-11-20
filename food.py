@@ -9,4 +9,8 @@ class Food(Turtle):
         self.shapesize(0.5,0.5)
         self.color("blue")
         self.speed("fastest")
+        self.respawnFood()
+        
+    def respawnFood(self):
         self.goto(random.randint(-280,280),random.randint(-280,280))
+        

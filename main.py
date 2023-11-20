@@ -24,7 +24,9 @@ while gameIsOn:
     screen.update()
     time.sleep(0.15)
     snake.moveSnake()
-    
+    if snake.head.distance(food) < 15:      # Detect collision with food particle
+        print("Yummmmmmmm")
+        food.respawnFood()
     
 
 
