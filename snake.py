@@ -15,11 +15,7 @@ class Snake:
     
     def createSnake(self):
         for pos in startPosition:                   # Create snake
-            newSegment = Turtle(shape='square')
-            newSegment.color("white")
-            newSegment.penup()
-            newSegment.goto(pos)
-            self.segments.append(newSegment)
+            self.addSegment(pos)
             
     def moveSnake(self):
         for seg_num in range(len(self.segments)-1, 0, -1):       # this part is used to move the previous segment into the position of the newer segment
@@ -27,6 +23,18 @@ class Snake:
             new_y = self.segments[seg_num - 1].ycor()            # it is done this way to ensure that the body of the snake follows the head properly
             self.segments[seg_num].goto(new_x,new_y)
         self.head.forward(movementSpeed)
+    
+    def addSegment(self, position):
+        newSegment = Turtle(shape='square')
+        newSegment.color("white")
+        newSegment.penup()
+        newSegment.goto(position)
+        self.segments.append(newSegment)
+        
+    
+    def extendSnake(self):
+        # add new segment to snek
+        self.addSegment(self.segments[-1].position())
         
     def up(self):
         if self.head.heading() != down:

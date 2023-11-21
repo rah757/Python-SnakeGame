@@ -33,6 +33,9 @@ while gameIsOn:
         yum.yummy(snake.head.position())      # write yum! in places where food gets eaten
         food.respawnFood()
         score.increaseScore()
+        snake.extendSnake()
+        
+    # Detect wall collision
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         gameIsOn = False
         score.gameOver()
