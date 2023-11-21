@@ -15,3 +15,4 @@ class Score(Turtle):
         self.clear()
         self.score+=1
         self.write(f"Score: {self.score}", font = ("Arial", 20, "normal"))
+        
