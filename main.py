@@ -26,15 +26,16 @@ gameIsOn = True
 
 while gameIsOn:
     screen.update()
-    time.sleep(0.15)
+    time.sleep(0.1)
     snake.moveSnake()
     if snake.head.distance(food) < 15:      # Detect collision with food particle
         yum.clearYummy()    # clear the yum! writing before the next yum is written
-        print("Yummmmmmmm")
-        pos = snake.head.position()
-        yum.yummy(pos)      # write yum! in places where food gets eaten
+        yum.yummy(snake.head.position())      # write yum! in places where food gets eaten
         food.respawnFood()
         score.increaseScore()
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        gameIsOn = False
+        score.gameOver()
     
 
 
