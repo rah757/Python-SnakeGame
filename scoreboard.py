@@ -8,6 +8,7 @@ class Score(Turtle):
         super().__init__()
         self.color("white")
         self.score = 0
+        self.high_score = 0
         self.penup()
         self.setposition(-50,250)
         self.hideturtle()
@@ -15,12 +16,17 @@ class Score(Turtle):
         self.updateScore()
         
     def updateScore(self):
-        self.write(f"Score: {self.score}", font = (font, fontsize))
+        self.clear()
+        self.write(f"Score: {self.score} HighScore: {self.high_score}", font = (font, fontsize))
     
     def increaseScore(self):
-        self.clear()
         self.score+=1
         self.updateScore()        
+        
+    def reset(self):
+        if self.score > self.high_score:
+            self.high_score = self.score
+        self.score = 0
         
     def gameOver(self):
         self.goto(-80,0)
