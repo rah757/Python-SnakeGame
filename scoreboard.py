@@ -1,5 +1,4 @@
 from turtle import Turtle
-file = open("data.txt", "r+")
 font = "Arial"
 fontsize = 20
 
